@@ -1,0 +1,3 @@
+[submodule "assets/yamato"]
+	path = assets/yamato
+	url = https://github.com/yamato3010/live2d-yamato
