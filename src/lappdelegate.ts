@@ -338,12 +338,12 @@ function onMouseMoved(e: MouseEvent): void {
     LAppPal.printMessage('view notfound');
     return;
   }
-
   const rect = canvas.getBoundingClientRect();
-  const posX: number = e.clientX - rect.left;
-  const posY: number = e.clientY - rect.top;
-
-  LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
+  document.body.addEventListener('mousemove', ev => {
+    const posX: number = ev.clientX - rect.left;
+    const posY: number = ev.clientY - rect.top;
+    LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
+  })
 }
 
 /**
