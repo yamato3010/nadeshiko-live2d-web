@@ -339,7 +339,7 @@ function onMouseMoved(e: MouseEvent): void {
     return;
   }
 
-  const rect = (e.target as Element).getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   const posX: number = e.clientX - rect.left;
   const posY: number = e.clientY - rect.top;
 
