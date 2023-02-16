@@ -260,7 +260,7 @@ export class LAppDelegate {
    * コンストラクタ
    */
   constructor() {
-    this._captured = false;
+    this._captured = true;
     this._mouseX = 0.0;
     this._mouseY = 0.0;
     this._isEnd = false;
