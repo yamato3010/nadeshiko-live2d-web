@@ -327,6 +327,9 @@ function onClickBegan(e: MouseEvent): void {
  * マウスポインタが動いたら呼ばれる。
  */
 function onMouseMoved(e: MouseEvent): void {
+  // 常に視線を移動するように
+  LAppDelegate.getInstance()._captured = true;
+
   if (!LAppDelegate.getInstance()._captured) {
     return;
   }
@@ -347,7 +350,7 @@ function onMouseMoved(e: MouseEvent): void {
  * クリックが終了したら呼ばれる。
  */
 function onClickEnded(e: MouseEvent): void {
-  LAppDelegate.getInstance()._captured = false;
+  // LAppDelegate.getInstance()._captured = false;
   if (!LAppDelegate.getInstance()._view) {
     LAppPal.printMessage('view notfound');
     return;
@@ -357,7 +360,8 @@ function onClickEnded(e: MouseEvent): void {
   const posX: number = e.clientX - rect.left;
   const posY: number = e.clientY - rect.top;
 
-  LAppDelegate.getInstance()._view.onTouchesEnded(posX, posY);
+  //　常に視線を移動したいのでこの処理はコメントアウト
+  // LAppDelegate.getInstance()._view.onTouchesEnded(posX, posY);
 }
 
 /**
