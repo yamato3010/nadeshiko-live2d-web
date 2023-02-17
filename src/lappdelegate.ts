@@ -307,6 +307,20 @@ export class LAppDelegate {
   _textureManager: LAppTextureManager; // テクスチャマネージャー
 }
 
+function trackingMouse(e: MouseEvent): void {
+  const rect = canvas.getBoundingClientRect();
+  const posX: number = e.clientX - rect.left;
+  const posY: number = e.clientY - rect.top;
+  LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
+}
+
+parent.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const posX: number = e.clientX - rect.left;
+  const posY: number = e.clientY - rect.top;
+  LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
+})
+
 /**
  * クリックしたときに呼ばれる。
  */
@@ -339,7 +353,7 @@ function onMouseMoved(e: MouseEvent): void {
     return;
   }
   const rect = canvas.getBoundingClientRect();
-  window.parent.addEventListener('mousemove', ev => {
+  document.body.addEventListener('mousemove', ev => {
     const posX: number = ev.clientX - rect.left;
     const posY: number = ev.clientY - rect.top;
     LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
