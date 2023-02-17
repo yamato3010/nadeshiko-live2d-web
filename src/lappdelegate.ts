@@ -339,7 +339,7 @@ function onMouseMoved(e: MouseEvent): void {
     return;
   }
   const rect = canvas.getBoundingClientRect();
-  top.document.body.addEventListener('mousemove', ev => {
+  window.addEventListener('mousemove', ev => {
     const posX: number = ev.clientX - rect.left;
     const posY: number = ev.clientY - rect.top;
     LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
