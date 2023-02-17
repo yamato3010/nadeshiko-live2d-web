@@ -306,20 +306,15 @@ export class LAppDelegate {
   _isEnd: boolean; // APP終了しているか
   _textureManager: LAppTextureManager; // テクスチャマネージャー
 }
-
-function trackingMouse(e: MouseEvent): void {
-  const rect = canvas.getBoundingClientRect();
-  const posX: number = e.clientX - rect.left;
-  const posY: number = e.clientY - rect.top;
-  LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
-}
-
+/**
 parent.addEventListener('mousemove', (e) => {
   const rect = canvas.getBoundingClientRect();
   const posX: number = e.clientX - rect.left;
   const posY: number = e.clientY - rect.top;
   LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);
 })
+クロスオリジンの場合，親の値にアクセスできず，表示できなくなるので無効化
+ */
 
 /**
  * クリックしたときに呼ばれる。
