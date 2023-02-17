@@ -1,4 +1,4 @@
-# Yamato-live2d-web
+# Nadeshiko-live2d-web
 [yamato3010/live2d-nadeshiko](https://github.com/yamato3010/live2d-nadeshiko)をweb上で動作させるデモ。  
 視線がマウスに追従します。  
 
