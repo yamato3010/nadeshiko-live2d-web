@@ -7,3 +7,10 @@ The line of sight follows the mouse.
 
 # Link
 - https://yamato3010.github.io/nadeshiko-live2d-web/
+
+# Usage
+```sh
+npm install
+npm build
+npm serve
+```
